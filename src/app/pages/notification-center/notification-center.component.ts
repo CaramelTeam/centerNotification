@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, Input } from '@angular/core';
 import { ConnectSignalRService } from 'src/app/service/connect-signal-r.service';
 import { Subscription } from 'rxjs';
 import { DTOTargetInfo } from 'src/app/interfaces/DTO_targetInfo.interfaces';
@@ -19,6 +19,9 @@ export class NotificationCenterComponent implements OnInit, OnDestroy  {
   public dataCountry!: Object;
   public dataCountryInfo!: any;
   public urlFlags!: string;
+
+  @Input() datosRecibidos: any;
+
 
   constructor(private signalRService: ConnectSignalRService, private informationCountry: InformationCountryService){
 

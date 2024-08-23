@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonServeService } from 'src/app/service/json-serve.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  constructor(public jsonService: JsonServeService){
+
+  }
+
+  userData!: any;
 
   ngOnInit(): void {
       if ("Notification" in window) {
@@ -25,5 +31,11 @@ export class HomeComponent implements OnInit {
     }
 
   }
+
+  getUser(){
+      this.userData = this.jsonService.getUsers();
+  }
+
+
 
 }

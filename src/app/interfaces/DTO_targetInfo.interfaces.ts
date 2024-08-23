@@ -1,18 +1,18 @@
 export interface DTOTargetInfo {
-  status?: string;
-  scheme?: string;
-  type?: string;
-  issuer?: string;
-  cardTier?: string;
+  Status?: string;
+  Scheme?: string;
+  Type?: string;
+  Issuer?: string;
+  CardTier?: string;
   Country: DTOCountry;
   luhn: boolean;
 }
 
 interface DTOCountry {
-  a2?: string;
-  a3?: string;
-  n3?: string;
-  isd?: string;
+  A2?: string;
+  A3?: string;
+  N3?: string;
+  Isd?: string;
   Name?: string;
-  cont?: string;
+  Cont?: string;
 }

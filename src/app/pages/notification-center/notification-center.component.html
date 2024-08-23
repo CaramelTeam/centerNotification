@@ -5,6 +5,53 @@
 
 <p> {{messageCurrent}}</p>
 
-<p> {{urlFlags | json}} </p>
+<!-- <p> {{urlFlags | json}} </p> -->
 
-<img [src]="urlFlags" alt="Dynamic Image">
+<!-- <img [src]="urlFlags" alt="Dynamic Image"> -->
+
+
+<div class="form-container">
+  <form class="form">
+    <h2>Informacion del banco</h2>
+
+    <div class="form-group">
+      <label for="name">Pais del banco:</label>
+      <input type="text" id="name" name="name" [value]="dataFormat.Country.Name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Dominio:</label>
+      <input [value]="dataFormat.Scheme" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Tipo de tarjeta:</label>
+      <input [value]="dataFormat.Type" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Banco:</label>
+      <input type="text" [value]="dataFormat.Issuer" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Continente:</label>
+      <input type="text" [value]="dataFormat.Country.Cont" required />
+    </div>
+
+    <div class="form-group">
+      <label for="dropdown">Selecciona un usuario:</label>
+      <select id="dropdown" name="dropdown">
+        <option value="opcion1">Opción 1</option>
+        <option value="opcion2">Opción 2</option>
+        <option value="opcion3">Opción 3</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-btn">Enviar</button>
+  </form>
+
+  <div class="image-container">
+    <img [src]="urlFlags" alt="Imagen Ejemplo" />
+  </div>
+</div>

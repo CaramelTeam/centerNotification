@@ -1,0 +1,17 @@
+<body>
+
+  <div class="login-container">
+      <h2>Login</h2>
+      <form>
+          <input #userName type="text" placeholder="Username or Email" required>
+          <input #userPassword type="password" placeholder="Password" required>
+          <p-button label="Login" (click)="getUser(userName.value, userPassword.value)"></p-button>
+          <a routerLink="/newAccount" class="forgot-password">Forgot Password?</a>
+
+      </form>
+  </div>
+
+  </body>
+
+
+<p> {{userData | json}}</p>

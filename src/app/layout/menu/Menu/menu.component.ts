@@ -8,6 +8,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuComponent {
   items: MenuItem[] | undefined;
+  sidebarVisible: boolean = true;
+
 
   constructor(){
       this.items = [
@@ -15,5 +17,9 @@ export class MenuComponent {
         { label: 'Notificaciones', icon: 'pi pi-fw pi-calendar', routerLink: '/notification' },
         { label: 'Login', icon: 'pi pi-fw pi-pencil', routerLink: '/login' }
       ];
+  }
+
+  changeStateMenu(){
+    this.sidebarVisible = this.sidebarVisible ? false : true;
   }
 }

@@ -10,6 +10,7 @@ import { NewAcountComponent } from './layout/new-acount/new-acount.component';
 
 import { ButtonModule } from 'primeng/button';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { SidebarModule } from 'primeng/sidebar';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
     AppRoutingModule,
     HttpClientModule,
     ButtonModule,
-    TabMenuModule
+    TabMenuModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

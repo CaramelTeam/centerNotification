@@ -8,18 +8,18 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuComponent {
   items: MenuItem[] | undefined;
-  sidebarVisible: boolean = true;
+  sidebarVisible: boolean = false;
 
 
   constructor(){
       this.items = [
-        { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '' },
-        { label: 'Notificaciones', icon: 'pi pi-fw pi-calendar', routerLink: '/notification' },
-        { label: 'Login', icon: 'pi pi-fw pi-pencil', routerLink: '/login' }
+        { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/' },
+        { label: 'Login', icon: 'pi pi-fw pi-pencil', routerLink: '/login' },
+        { label: 'Menu', icon: 'pi pi-fw pi-pencil', command: () => {
+          this.sidebarVisible = this.sidebarVisible ? false : true;
+        }}
       ];
   }
 
-  changeStateMenu(){
-    this.sidebarVisible = this.sidebarVisible ? false : true;
-  }
+
 }

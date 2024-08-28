@@ -1,28 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class JsonServeService {
-  private apiUrl = 'http://localhost:3000/users'; // URL de la API simulada
-  private urlUser = 'http://localhost:3000/users?name=';
-  public login: boolean = false;
+export class SendNotificationService {
 
-  private apiUrlTarget = 'http://localhost:3000/targetNumber'; // URL de la API simulada
-
+  apiUrlTarget: string = 'https://localhost:7261/WeatherForecast/Get-infoTarget?sixDigit=';
   constructor(private http: HttpClient) { }
 
-  getUsers(): Promise<any> {
+  setNotification(user: string, numberDigits: string, userSend: string | null): Promise<any> {
     return new Promise<any>((resolve) => {
       const httpOptions = {
         headers: new HttpHeaders({
           'Accept': '*/*'
         }),
       };
-
-      this.http.get<string>(this.apiUrl, httpOptions).subscribe(
+      var urlConsul = this.apiUrlTarget + numberDigits + '&nameUser=' + user + '&userSend=' + userSend;
+      this.http.get<string>(urlConsul, httpOptions).subscribe(
         res => {
           try {
             // const parsedData = JSON.parse(res);
@@ -48,52 +43,20 @@ export class JsonServeService {
     });
   }
 
-  getUserEspecific(name: String, password: string): Promise<any> {
-    return new Promise<any>((resolve) => {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Accept': '*/*'
-        }),
-      };;
-      this.http.get<string>(this.urlUser + name + "&password=" + password, httpOptions).subscribe(
-        res => {
-          try {
-            resolve({ data: res });
-          } catch (e) {
-            console.error('Error al parsear JSON:', e);
-            resolve({
-              status: false,
-              message: 'Failed to parse response.',
-              alarms: e
-            });
-          }
-        },
-        error => {
-          console.error('HTTP Error:', error);
-          resolve({
-            status: false,
-            message: (error.error && error.error.message) ? error.error.message : 'Server error. Contact technical support.',
-            alarms: error
-          });
-        }
-      );
-    });
-  }
 
-
-  getTarget(): Promise<any> {
+  apiUrlGetNot: string = 'https://localhost:7261/WeatherForecast/get-OldNotification?nameUser=';
+  getOldNotificacions(userSend: string | null): Promise<any> {
     return new Promise<any>((resolve) => {
       const httpOptions = {
         headers: new HttpHeaders({
           'Accept': '*/*'
         }),
       };
-
-      this.http.get<string>(this.apiUrlTarget, httpOptions).subscribe(
+      this.http.get<string>(this.apiUrlGetNot + userSend, httpOptions).subscribe(
         res => {
           try {
             // const parsedData = JSON.parse(res);
-            resolve({ data: res });
+            resolve(res);
           } catch (e) {
             console.error('Error al parsear JSON:', e);
             resolve({

@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: 'notification',
         loadChildren: () => import('./pages/notification-center/notification-center.module').then(s => s.NotificationCenterModule)
+      },
+      {
+        path: 'notificationView',
+        loadChildren: () => import('./pages/notifications/notification.module').then(s => s.NotificationModule)
       }
     ]
   }

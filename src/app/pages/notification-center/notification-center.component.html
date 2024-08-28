@@ -1,9 +1,4 @@
-<p>notification-center works!</p>
-
-
-<p>{{dataFormat | json}}</p>
-
-<p> {{messageCurrent}}</p>
+<h3> {{userNameCurrent}}</h3>
 
 <!-- <p> {{urlFlags | json}} </p> -->
 
@@ -20,13 +15,13 @@
     </div>
 
     <div class="form-group">
-      <label for="email">Dominio:</label>
-      <input [value]="dataFormat.Scheme" required />
+      <label for="text">Dominio:</label>
+      <input type="text" [value]="dataFormat.Scheme" required />
     </div>
 
     <div class="form-group">
-      <label for="email">Tipo de tarjeta:</label>
-      <input [value]="dataFormat.Type" required />
+      <label for="text">Tipo de tarjeta:</label>
+      <input type="text" [value]="dataFormat.Type" required />
     </div>
 
     <div class="form-group">
@@ -38,20 +33,31 @@
       <label for="password">Continente:</label>
       <input type="text" [value]="dataFormat.Country.Cont" required />
     </div>
-
-    <div class="form-group">
-      <label for="dropdown">Selecciona un usuario:</label>
-      <select id="dropdown" name="dropdown">
-        <option value="opcion1">Opción 1</option>
-        <option value="opcion2">Opción 2</option>
-        <option value="opcion3">Opción 3</option>
-      </select>
-    </div>
-
-    <button type="submit" class="submit-btn">Enviar</button>
   </form>
 
   <div class="image-container">
     <img [src]="urlFlags" alt="Imagen Ejemplo" />
   </div>
+</div>
+
+
+
+<!-- --------------------------------------------Send Notification -->
+<div class="form-container">
+  <form class="form">
+    <h2>Envio de notificacion</h2>
+
+    <div class="form-group">
+      <label for="dropdown">Selecciona a que usuario notificaras:</label>
+      <p-dropdown #dropUser [options]="usersData" optionLabel="name" [showClear]="false" placeholder="Select a user"></p-dropdown>
+    </div>
+
+    <div class="form-group">
+      <label for="dropdown">Selecciona el banco:</label>
+      <p-dropdown #dropTarget [options]="usersTarget" optionLabel="target" [showClear]="true" placeholder="Select a target"></p-dropdown>
+    </div>
+
+    <button type="button" class="submit-btn" (click)="sendMessageTarget(dropUser.value, dropTarget.value)">Enviar</button>
+  </form>
+
 </div>

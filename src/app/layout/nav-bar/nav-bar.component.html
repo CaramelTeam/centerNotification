@@ -1,0 +1,16 @@
+<body>
+  <nav>
+      <div class="logo tab-menu">
+        <h3>Consultorio Dental</h3>
+          <p-button [text]="true" [raised]="true" (onClick)="showMenu()">
+           <i class="pi pi-bars"></i>
+          </p-button>
+      </div>
+      <div class="tab-menu">
+          <a routerLink="/">Inicio</a>
+          <a routerLink="/login" *ngIf="!this.loginCom.login">Login</a>
+          <a routerLink="/" (click)="cleanLog()" *ngIf="this.loginCom.login">Log out</a>
+          <a routerLink="/notificationView"  *ngIf="this.loginCom.login">View Notifications</a>
+      </div>
+  </nav>
+</body>

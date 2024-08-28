@@ -1,0 +1,62 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1b2431; /* Fondo oscuro */
+  color: #ffffff; /* Texto claro */
+}
+
+nav {
+  background-color: #1b2431;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+nav .logo h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0;
+  padding-top: 6px;
+}
+
+nav .tab-menu {
+  display: flex;
+  gap: 15px;
+}
+
+nav .tab-menu a {
+  color: #cbd1dc;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav .tab-menu a:hover {
+  background-color: #2c3646; /* Fondo cuando se pasa el mouse sobre el elemento */
+  color: #ffffff;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  nav .tab-menu {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+  }
+
+  nav .tab-menu a {
+      width: 100%;
+      text-align: left;
+  }
+}

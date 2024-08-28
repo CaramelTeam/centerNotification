@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { JsonServeService } from 'src/app/service/json-serve.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +18,13 @@ public userData: any;
 
   getUser(name: string, password: string){
       this.serviceJson.getUserEspecific(name, password).then(res => {
-        this.userData = res;
-        if(res) this.route.navigate(['/notification']);
+        if (res.data.length >= 1){
+          this.userData = res.data;
+          sessionStorage.setItem("userName", res.data[0].name);
+          this.route.navigate(['/notification']);
+          this.serviceJson.login = true;
+        }
+
       });
   }
 

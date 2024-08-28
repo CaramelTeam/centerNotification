@@ -1,0 +1,25 @@
+{
+  "users": [
+    { "id": 1, "name": "Juan Carlos", "numberAccount": "415231", "password": "Litos_0002" },
+    { "id": 2, "name": "Liz Avendano", "numberAccount": "123654", "password": "Liz_0001" },
+    { "id": 2, "name": "Bryan Cortez", "numberAccount": "987455", "password": "Bryan_0003" },
+    { "id": 2, "name": "Miguel Ortiz", "numberAccount": "231465", "password": "Miguel_0004" },
+    { "id": 2, "name": "Frank Gomez", "numberAccount": "545896", "password": "Frank_0005" }
+  ],
+  "targetNumber": [
+    { "id": 1, "digits": "531722" },
+    { "id": 2, "digits": "510125" },
+    { "id": 3, "digits": "421316" },
+    { "id": 4, "digits": "415220" },
+    { "id": 5, "digits": "531721" },
+    { "id": 6, "digits": "421320" },
+    { "id": 7, "digits": "421312" }
+  ],
+  "user_target": [
+    {"id": 1, "userID": 1, "targetID": 1},
+    {"id": 2, "userID": 1, "targetID": 2},
+    {"id": 3, "userID": 1, "targetID": 4},
+    {"id": 4, "userID": 2, "targetID": 1},
+    {"id": 5, "userID": 2, "targetID": 3}
+  ]
+}

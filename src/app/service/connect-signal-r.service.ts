@@ -14,12 +14,11 @@ export class ConnectSignalRService {
 
   constructor() { }
 
-  public startConnection(){
+  public startConnection(userName: string | null){
     this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl('wss://localhost:7261/NotiService', {
+    .withUrl(`wss://localhost:7261/NotiService?userId=${userName}`, {
       skipNegotiation: true,
-      transport: signalR.HttpTransportType.WebSockets,
-      accessTokenFactory: () => 'JuanAvila'
+      transport: signalR.HttpTransportType.WebSockets
     })
     .build();
 

@@ -8,9 +8,15 @@ import { MenuComponent } from './layout/menu/Menu/menu.component';
 import { LoginComponent } from './layout/login/login.component';
 import { NewAcountComponent } from './layout/new-acount/new-acount.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SidebarModule } from 'primeng/sidebar';
+import { DropdownModule } from 'primeng/dropdown';
+import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { TableModule } from 'primeng/table';
+
 
 
 @NgModule({
@@ -19,7 +25,9 @@ import { SidebarModule } from 'primeng/sidebar';
     NotificationCenterComponent,
     MenuComponent,
     LoginComponent,
-    NewAcountComponent
+    NewAcountComponent,
+    NavBarComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,10 @@ import { SidebarModule } from 'primeng/sidebar';
     HttpClientModule,
     ButtonModule,
     TabMenuModule,
-    SidebarModule
+    SidebarModule,
+    BrowserAnimationsModule,
+    DropdownModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './layout/menu/Menu/menu.component';
-import { LoginComponent } from './layout/login/login.component';
+import { Login2Component } from './layout/loginSecond/login2.component';
 import { NewAcountComponent } from './layout/new-acount/new-acount.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: Login2Component
       },
       {
         path: 'newAccount',
@@ -27,6 +27,10 @@ const routes: Routes = [
       {
         path: 'notificationView',
         loadChildren: () => import('./pages/notifications/notification.module').then(s => s.NotificationModule)
+      },
+      {
+        path: 'notificationSend',
+        loadChildren: () => import('./pages/send-notification/notification-routing.module').then(s => s.NotificationSendTableRoutingModule)
       }
     ]
   }

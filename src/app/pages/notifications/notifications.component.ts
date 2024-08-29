@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SendNotificationService } from 'src/app/service/send-notification.service';
 
 import { CT_Notification } from 'src/app/interfaces/CT_notification.interfaces';
+import { ConnectSignalRService } from 'src/app/service/connect-signal-r.service';
 
 
 @Component({
@@ -12,20 +13,25 @@ import { CT_Notification } from 'src/app/interfaces/CT_notification.interfaces';
 export class NotificationsComponent implements OnInit {
 
   notificationes!: CT_Notification[];
-
-  constructor(public sendNotification: SendNotificationService){}
+  viewNotification: boolean = false;
+  constructor(public sendNotification: SendNotificationService, private signalRService: ConnectSignalRService){}
 
   ngOnInit(): void {
     var nameSend = sessionStorage.getItem("userName");
     if(nameSend){
 
       this.sendNotification.getOldNotificacions(nameSend).then(res => {
-
-       res.forEach((element: any) => {
-        this.notificationes.push(element);
-       });
-
+          this.notificationes = res;
     });
     }
+  }
+
+  closeModal(){
+    console.log();
+  }
+
+  openModalView(message: CT_Notification){
+    this.viewNotification = true;
+    this.signalRService.viewNotification(message.message);
   }
 }

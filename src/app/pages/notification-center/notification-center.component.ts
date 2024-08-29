@@ -5,6 +5,7 @@ import { DTOTargetInfo } from 'src/app/interfaces/DTO_targetInfo.interfaces';
 import { InformationCountryService } from 'src/app/service/information-country.service';
 import { JsonServeService } from 'src/app/service/json-serve.service';
 import { SendNotificationService } from 'src/app/service/send-notification.service';
+import { ViewNotificationService } from 'src/app/service/view-notification.service';
 
 @Component({
   selector: 'app-notification-center',
@@ -12,7 +13,7 @@ import { SendNotificationService } from 'src/app/service/send-notification.servi
   styleUrls: ['./notification-center.component.css']
 })
 
-export class NotificationCenterComponent implements OnInit, OnDestroy  {
+export class NotificationCenterComponent implements OnInit, OnDestroy {
   private messageSubscription!: Subscription;
   public messages: string[] = [];
   public messageCurrent: string | undefined = '';
@@ -48,9 +49,11 @@ export class NotificationCenterComponent implements OnInit, OnDestroy  {
 
 
   constructor(private signalRService: ConnectSignalRService,
-              private informationCountry: InformationCountryService,
-              private jsonServe: JsonServeService,
-              private sendMess: SendNotificationService){
+    private informationCountry: InformationCountryService,
+    private jsonServe: JsonServeService,
+    private sendMess: SendNotificationService,
+    public messageData: ViewNotificationService
+  ) {
 
   }
   ngOnInit() {
@@ -59,7 +62,6 @@ export class NotificationCenterComponent implements OnInit, OnDestroy  {
     this.userNameCurrent = data;
     this.signalRService.startConnection(data);
     this.signalRService.addReceiveMessageListener();
-
 
     this.messageSubscription = this.signalRService.messageReceived$.subscribe((message: string) => {
       this.messages.push(message);
@@ -72,20 +74,23 @@ export class NotificationCenterComponent implements OnInit, OnDestroy  {
             body: "Esta es una notificación para: " + this.userNameCurrent,
             icon: res.data[0].flags.svg,
             tag: "Movimiento en tu cuenta"
-            };
+          };
           new Notification('New notification', objNot);
         }
       })
     });
 
+
     this.jsonServe.getUsers().then(resource => {
-        this.usersData = resource.data;
+      this.usersData = resource.data;
     });
 
     this.jsonServe.getTarget().then(res => {
       this.usersTarget = res.data.map((s: any) => s.digits);
       // this.usersTarget = res.data;
     })
+
+
   }
 
   sendMessage() {
@@ -98,8 +103,8 @@ export class NotificationCenterComponent implements OnInit, OnDestroy  {
     }
   }
 
-  sendMessageTarget(nameUser: any, digits: string){
+  sendMessageTarget(nameUser: any, digits: string) {
     var nameSend = sessionStorage.getItem("userName");
-      this.sendMess.setNotification(nameUser.name, digits, nameSend);
+    this.sendMess.setNotification(nameUser.name, digits, nameSend);
   }
 }

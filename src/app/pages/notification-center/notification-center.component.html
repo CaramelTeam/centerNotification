@@ -39,25 +39,3 @@
     <img [src]="urlFlags" alt="Imagen Ejemplo" />
   </div>
 </div>
-
-
-
-<!-- --------------------------------------------Send Notification -->
-<div class="form-container">
-  <form class="form">
-    <h2>Envio de notificacion</h2>
-
-    <div class="form-group">
-      <label for="dropdown">Selecciona a que usuario notificaras:</label>
-      <p-dropdown #dropUser [options]="usersData" optionLabel="name" [showClear]="false" placeholder="Select a user"></p-dropdown>
-    </div>
-
-    <div class="form-group">
-      <label for="dropdown">Selecciona el banco:</label>
-      <p-dropdown #dropTarget [options]="usersTarget" optionLabel="target" [showClear]="true" placeholder="Select a target"></p-dropdown>
-    </div>
-
-    <button type="button" class="submit-btn" (click)="sendMessageTarget(dropUser.value, dropTarget.value)">Enviar</button>
-  </form>
-
-</div>

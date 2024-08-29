@@ -12,4 +12,6 @@ import { NotificationsTableRoutingModule } from './notification-routing.module';
     NotificationsTableRoutingModule
   ]
 })
-export class NotificationModule { }
+export class NotificationModule {
+
+ }

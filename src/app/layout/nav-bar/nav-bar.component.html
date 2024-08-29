@@ -1,16 +1,29 @@
 <body>
   <nav>
-      <div class="logo tab-menu">
-        <h3>Consultorio Dental</h3>
-          <p-button [text]="true" [raised]="true" (onClick)="showMenu()">
-           <i class="pi pi-bars"></i>
-          </p-button>
-      </div>
-      <div class="tab-menu">
-          <a routerLink="/">Inicio</a>
-          <a routerLink="/login" *ngIf="!this.loginCom.login">Login</a>
-          <a routerLink="/" (click)="cleanLog()" *ngIf="this.loginCom.login">Log out</a>
-          <a routerLink="/notificationView"  *ngIf="this.loginCom.login">View Notifications</a>
-      </div>
+    <div class="logo tab-menu">
+      <h3>
+        <p-button [text]="true" [raised]="true" routerLink="/">
+          Notification Center
+        </p-button>
+      </h3>
+      <p-button [text]="true" [raised]="true" (onClick)="showMenu()">
+        <i class="pi pi-bars"></i>
+      </p-button>
+    </div>
+    <div class="tab-menu">
+      <a (click)="this.loginCom.viewModalLogin = true" *ngIf="!this.loginCom.login">Login</a>
+
+
+      <a routerLink="/notificationView" *ngIf="this.loginCom.login">
+        <i class="pi pi-bell mr-2 p-text-secondary" pBadge style="font-size: 1.5rem" value="5"></i>
+      </a>
+      <a routerLink="/notification" *ngIf="this.loginCom.login">View Live</a>
+      <a routerLink="/" (click)="cleanLog()" *ngIf="this.loginCom.login">Log out</a>
+
+      <a routerLink="/notificationSend"> Send Notification </a>
+      <!-- <a routerLink="/login" *ngIf="!this.loginCom.login">Login 2</a> -->
+
+      <p *ngIf="nameUser != null"> {{ nameUser }} </p>
+    </div>
   </nav>
 </body>

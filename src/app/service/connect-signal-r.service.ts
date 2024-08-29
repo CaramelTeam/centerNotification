@@ -35,9 +35,19 @@ export class ConnectSignalRService {
     });
   }
 
+  public viewNotification(message: string){
+    this.messageReceived.next(message);
+  }
   // Método para enviar mensajes al hub
   public sendMessage(methodName: string, data: any) {
     this.hubConnection.invoke(methodName, data)
       .catch((err) => console.error(err));
+  }
+
+  public desconnected(){
+    this.hubConnection
+    .stop()
+    .then(() => console.log('Conexión cerrada'))
+    .catch(err => console.log('Error al cerrar la conexión:', err));
   }
 }

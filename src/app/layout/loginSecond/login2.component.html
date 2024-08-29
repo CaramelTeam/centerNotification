@@ -1,0 +1,20 @@
+<body>
+  <div class="login-page">
+      <div class="image-container">
+          <img src="https://www.shutterstock.com/image-photo/young-smiling-male-businessman-founder-600nw-2454061349.jpg" alt="Corporate Image">
+      </div>
+      <div class="login-container">
+          <div class="logo-container">
+              <img src="https://png.pngtree.com/png-clipart/20230807/original/pngtree-american-buffalo-doodle-art-improvised-single-thickness-simple-vector-picture-image_10061088.png" alt="Logo">
+          </div>
+          <h2>Portal Corporativo</h2>
+          <p>Inicie sesión en su cuenta</p>
+          <form>
+              <input #userName type="text" placeholder="Nº Empleado / Correo Electrónico" required>
+              <input #userPassword type="password" placeholder="Contraseña" required>
+              <p-button label="Iniciar Sesión" (click)="getUser(userName.value, userPassword.value)"></p-button>
+              <a routerLink="/newAccount" class="forgot-password">¿Olvidó su contraseña?</a>
+          </form>
+      </div>
+  </div>
+</body>

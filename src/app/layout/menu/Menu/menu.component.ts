@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, NgModule, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { JsonServeService } from 'src/app/service/json-serve.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,7 @@ export class MenuComponent {
   sidebarVisible: boolean = false;
 
 
-  constructor(){
+  constructor(public JsonService: JsonServeService){
       this.items = [
         { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/' },
         { label: 'Login', icon: 'pi pi-fw pi-pencil', routerLink: '/login' },

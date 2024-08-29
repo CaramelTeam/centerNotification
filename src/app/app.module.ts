@@ -17,6 +17,15 @@ import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { TableModule } from 'primeng/table';
 
+import { SpeedDialModule } from 'primeng/speeddial';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { DialogModule } from 'primeng/dialog';
+import { Login2Component } from './layout/loginSecond/login2.component';
+import { BadgeModule } from 'primeng/badge';
+import { SendNotificationComponent } from './pages/send-notification/send-notification.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +36,10 @@ import { TableModule } from 'primeng/table';
     LoginComponent,
     NewAcountComponent,
     NavBarComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    Login2Component,
+    SendNotificationComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,13 @@ import { TableModule } from 'primeng/table';
     SidebarModule,
     BrowserAnimationsModule,
     DropdownModule,
-    TableModule
+    TableModule,
+    SpeedDialModule,
+    SplitButtonModule,
+    ScrollPanelModule,
+    TieredMenuModule,
+    DialogModule,
+    BadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

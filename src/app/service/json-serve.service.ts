@@ -9,6 +9,8 @@ export class JsonServeService {
   private apiUrl = 'http://localhost:3000/users'; // URL de la API simulada
   private urlUser = 'http://localhost:3000/users?name=';
   public login: boolean = false;
+  public viewModalLogin: boolean = false;
+
 
   private apiUrlTarget = 'http://localhost:3000/targetNumber'; // URL de la API simulada
 
@@ -93,7 +95,7 @@ export class JsonServeService {
         res => {
           try {
             // const parsedData = JSON.parse(res);
-            resolve({ data: res });
+            resolve(res);
           } catch (e) {
             console.error('Error al parsear JSON:', e);
             resolve({

@@ -1,12 +1,25 @@
 <p-table [value]="notificationes" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
-      <tr>
-          <th>Send Notification</th>
-      </tr>
+    <tr>
+      <th> Id Notificaction </th>
+      <th> Notification By </th>
+      <th> Date Recibed </th>
+      <th> Hour Recibed </th>
+      <th> Accion </th>
+    </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-product>
-      <tr>
-          <td>{{ notificationes }}</td>
-      </tr>
+  <ng-template pTemplate="body" let-noti>
+    <tr>
+      <td> {{noti.id}} </td>
+      <td>{{ noti.userSend }}</td>
+      <td>{{ noti.dateSend }}</td>
+      <td> {{ noti.hour }} </td>
+      <td> <button pButton (click)="openModalView(noti)"> View Notification </button> </td>
+    </tr>
   </ng-template>
 </p-table>
+
+
+<p-dialog [(visible)]="viewNotification" [style]="{width: '50vw'}" (onHide)="closeModal()">
+  <app-notification-center></app-notification-center>
+</p-dialog>

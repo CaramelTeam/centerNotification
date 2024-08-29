@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ export class JsonServeService {
   public login: boolean = false;
   public viewModalLogin: boolean = false;
 
+  private nameLogin = new Subject<string>();
+  nameLogin$ = this.nameLogin.asObservable();
 
   private apiUrlTarget = 'http://localhost:3000/targetNumber'; // URL de la API simulada
 
@@ -115,5 +117,9 @@ export class JsonServeService {
         }
       );
     });
+  }
+
+  public updateName(name: string){
+    this.nameLogin.next(name);
   }
 }

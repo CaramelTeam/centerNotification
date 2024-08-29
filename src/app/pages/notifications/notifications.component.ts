@@ -3,6 +3,7 @@ import { SendNotificationService } from 'src/app/service/send-notification.servi
 
 import { CT_Notification } from 'src/app/interfaces/CT_notification.interfaces';
 import { ConnectSignalRService } from 'src/app/service/connect-signal-r.service';
+import { MenuComponent } from 'src/app/layout/menu/Menu/menu.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class NotificationsComponent implements OnInit {
 
   notificationes!: CT_Notification[];
   viewNotification: boolean = false;
-  constructor(public sendNotification: SendNotificationService, private signalRService: ConnectSignalRService){}
+  constructor(public sendNotification: SendNotificationService, private signalRService: ConnectSignalRService, private toast: MenuComponent){}
 
   ngOnInit(): void {
     var nameSend = sessionStorage.getItem("userName");
@@ -33,5 +34,8 @@ export class NotificationsComponent implements OnInit {
   openModalView(message: CT_Notification){
     this.viewNotification = true;
     this.signalRService.viewNotification(message.message);
+    this.sendNotification.clenaNotification(message.id).then(res => {
+      this.toast.showToast(res)
+    });
   }
 }

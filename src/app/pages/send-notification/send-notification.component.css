@@ -20,18 +20,19 @@ h3 {
 }
 
 .form-container {
-  display: flex; /* Usar flexbox para alinear el formulario y la imagen */
   background-color: #2c3646; /* Fondo de formularios más claro */
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   align-items: flex-start; /* Alinear el contenido en la parte superior */
+  text-align: center;
 }
 
 .form {
   flex: 1; /* El formulario ocupa el espacio disponible */
-  margin-right: 20px; /* Espacio entre el formulario y la imagen */
+  /* margin-right: 20px; Espacio entre el formulario y la imagen */
+  text-align: center;
 }
 
 .image-container {
@@ -87,6 +88,15 @@ button.submit-btn {
 
 button.submit-btn:hover {
   background-color: #0056b3;
+}
+
+.btnSendNotificatio{
+  margin-right: 20px;
+  background-color: green;
+  border-color: green;
+}
+.container-send{
+  text-align: center;
 }
 
 /* Media queries para dispositivos móviles */

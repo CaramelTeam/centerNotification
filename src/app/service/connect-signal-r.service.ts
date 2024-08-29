@@ -8,7 +8,6 @@ import { Subject } from 'rxjs';
 export class ConnectSignalRService {
   private hubConnection!: signalR.HubConnection;
 
-  // Cambiar Subject para que sea de tipo DTOTargetInfo
   private messageReceived = new Subject<string>();
   messageReceived$ = this.messageReceived.asObservable();
 

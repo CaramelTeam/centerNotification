@@ -21,6 +21,7 @@ public userData: any;
         if (res.data.length >= 1){
           this.userData = res.data;
           sessionStorage.setItem("userName", res.data[0].name);
+          this.serviceJson.updateName(res.data[0].name);
           this.route.navigate(['/notification']);
           this.serviceJson.login = true;
           this.serviceJson.viewModalLogin = false;

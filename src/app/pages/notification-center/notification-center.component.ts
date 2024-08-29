@@ -103,8 +103,8 @@ export class NotificationCenterComponent implements OnInit, OnDestroy {
     }
   }
 
-  sendMessageTarget(nameUser: any, digits: string) {
-    var nameSend = sessionStorage.getItem("userName");
-    this.sendMess.setNotification(nameUser.name, digits, nameSend);
-  }
+  // sendMessageTarget(nameUser: any, digits: string) {
+  //   var nameSend = sessionStorage.getItem("userName");
+  //   this.sendMess.setNotification(nameUser.name, digits, nameSend);
+  // }
 }

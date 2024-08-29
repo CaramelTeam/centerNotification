@@ -1,19 +1,25 @@
-
 <div class="form-container">
+
   <form class="form">
-    <h2>Envio de notificacion</h2>
+    <h2>Envio de notificacion a grupos</h2>
 
     <div class="form-group">
-      <label for="dropdown">Selecciona a que usuario notificaras:</label>
-      <p-dropdown #dropUser [options]="usersData" optionLabel="name" [showClear]="false" placeholder="Select a user"></p-dropdown>
+      <label for="dropdown">Selecciona a los usuario notificaras:</label>
+      <p-multiSelect #dropUser [options]="usersData" formControlName="selected Users" optionLabel="name"
+        placeholder="Select Users"></p-multiSelect>
     </div>
 
     <div class="form-group">
       <label for="dropdown">Selecciona el banco:</label>
-      <p-dropdown #dropTarget [options]="usersTarget" optionLabel="target" [showClear]="true" placeholder="Select a target"></p-dropdown>
+      <p-dropdown #dropTarget [options]="usersTarget" optionLabel="digits" placeholder="Select a target"></p-dropdown>
     </div>
 
-    <button type="button" class="submit-btn" (click)="sendMessageTarget(dropUser.value, dropTarget.value)">Enviar</button>
+    <div class="form-container">
+      <button type="button" class="btnSendNotificatio" pButton
+        (click)="sendMessageTarget(dropUser.value, dropTarget.value)">
+        Enviar
+      </button>
+    </div>
   </form>
 
 </div>

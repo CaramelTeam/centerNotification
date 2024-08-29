@@ -26,6 +26,11 @@ import { Login2Component } from './layout/loginSecond/login2.component';
 import { BadgeModule } from 'primeng/badge';
 import { SendNotificationComponent } from './pages/send-notification/send-notification.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ToastModule } from 'primeng/toast';
+
+import { MessageService } from 'primeng/api'; // Importa el serviciov
+
 
 
 @NgModule({
@@ -56,9 +61,11 @@ import { FooterComponent } from './layout/footer/footer.component';
     ScrollPanelModule,
     TieredMenuModule,
     DialogModule,
-    BadgeModule
+    BadgeModule,
+    MultiSelectModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

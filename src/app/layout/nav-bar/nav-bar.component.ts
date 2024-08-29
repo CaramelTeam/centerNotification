@@ -4,6 +4,7 @@ import { JsonServeService } from 'src/app/service/json-serve.service';
 
 import { MenuItem } from 'primeng/api';
 import { ConnectSignalRService } from 'src/app/service/connect-signal-r.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,9 +13,14 @@ import { ConnectSignalRService } from 'src/app/service/connect-signal-r.service'
 })
 export class NavBarComponent implements OnInit {
 
-  nameUser: string | null = sessionStorage.getItem("userName");
+  nameUser: string = '';
+  nameSubcription!: Subscription;
+
   constructor(public menuComp: MenuComponent, public loginCom: JsonServeService, private signalService: ConnectSignalRService){
 
+    this.nameSubcription = this.loginCom.nameLogin$.subscribe((name: string) => {
+      this.nameUser = name;
+    });
   }
 
   items!: MenuItem[];
@@ -158,5 +164,6 @@ export class NavBarComponent implements OnInit {
     sessionStorage.removeItem("userName");
     this.loginCom.login = false;
     this.signalService.desconnected();
+    this.loginCom.updateName("");
   }
 }

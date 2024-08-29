@@ -28,6 +28,7 @@ import { SendNotificationComponent } from './pages/send-notification/send-notifi
 import { FooterComponent } from './layout/footer/footer.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
+import { MenuModule } from 'primeng/menu';
 
 import { MessageService } from 'primeng/api'; // Importa el serviciov
 
@@ -63,7 +64,8 @@ import { MessageService } from 'primeng/api'; // Importa el serviciov
     DialogModule,
     BadgeModule,
     MultiSelectModule,
-    ToastModule
+    ToastModule,
+    MenuModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

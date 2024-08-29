@@ -26,6 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'notificationView',
+        canLoad: [],
         loadChildren: () => import('./pages/notifications/notification.module').then(s => s.NotificationModule)
       },
       {

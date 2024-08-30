@@ -14,7 +14,6 @@ export class SendNotificationComponent implements OnInit {
 
   public usersData!: any;
   public usersTarget!: any;
-  viewMultiselect: boolean = false;
 
   constructor(private sendMess: SendNotificationService, public jsonServe: JsonServeService, private showToast: MenuComponent){}
 
@@ -26,7 +25,6 @@ export class SendNotificationComponent implements OnInit {
   });
 
   this.jsonServe.getTarget().then(res => {
-    // this.usersTarget = res.data.map((s: any) => s.digits);
     this.usersTarget = res;
   })
   }
@@ -41,9 +39,5 @@ export class SendNotificationComponent implements OnInit {
     };
       this.sendMess.setNotification(dataSend);
       this.showToast.showToast(true);
-  }
-
-  mutiselect(){
-    this.viewMultiselect = this.viewMultiselect ? false : true;
   }
 }

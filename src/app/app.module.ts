@@ -29,6 +29,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
 import { MenuModule } from 'primeng/menu';
+import { SkeletonModule } from 'primeng/skeleton';
 
 import { MessageService } from 'primeng/api'; // Importa el serviciov
 
@@ -65,7 +66,8 @@ import { MessageService } from 'primeng/api'; // Importa el serviciov
     BadgeModule,
     MultiSelectModule,
     ToastModule,
-    MenuModule
+    MenuModule,
+    SkeletonModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

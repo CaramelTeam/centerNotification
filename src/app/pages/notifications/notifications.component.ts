@@ -15,6 +15,7 @@ export class NotificationsComponent implements OnInit {
 
   notificationes!: CT_Notification[];
   viewNotification: boolean = false;
+  loading: boolean = true;
   constructor(public sendNotification: SendNotificationService, private signalRService: ConnectSignalRService, private toast: MenuComponent){}
 
   ngOnInit(): void {
@@ -23,6 +24,7 @@ export class NotificationsComponent implements OnInit {
 
       this.sendNotification.getOldNotificacions(nameSend).then(res => {
           this.notificationes = res;
+          this.loading = false;
     });
     }
   }

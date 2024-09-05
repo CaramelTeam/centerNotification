@@ -31,8 +31,12 @@ import { ToastModule } from 'primeng/toast';
 import { MenuModule } from 'primeng/menu';
 import { SkeletonModule } from 'primeng/skeleton';
 
-import { MessageService } from 'primeng/api'; // Importa el serviciov
-
+import { MessageService } from 'primeng/api'; // Importa el servicio
+import { DxSchedulerModule } from 'devextreme-angular';
+import { CalendarComponent } from './pages/calendar/calendar.component'; //Modulo de calendario para las agendas
+import { CalendarModule  } from 'primeng/calendar';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { FullcalendarComponent } from './pages/fullcalendar/fullcalendar.component';
 
 
 @NgModule({
@@ -46,7 +50,9 @@ import { MessageService } from 'primeng/api'; // Importa el serviciov
     NotificationsComponent,
     Login2Component,
     SendNotificationComponent,
-    FooterComponent
+    FooterComponent,
+    CalendarComponent,
+    FullcalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,10 @@ import { MessageService } from 'primeng/api'; // Importa el serviciov
     MultiSelectModule,
     ToastModule,
     MenuModule,
-    SkeletonModule
+    SkeletonModule,
+    DxSchedulerModule,
+    CalendarModule,
+    FullCalendarModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

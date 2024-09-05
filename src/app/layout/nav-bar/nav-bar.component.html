@@ -21,7 +21,10 @@
       <a routerLink="/" (click)="cleanLog()" *ngIf="this.loginCom.login">Log out</a>
 
       <a routerLink="/notificationSend"> Send Notification </a>
-      <!-- <a routerLink="/login" *ngIf="!this.loginCom.login">Login 2</a> -->
+      <a routerLink="/login" *ngIf="!this.loginCom.login">Login 2</a>
+
+      <a routerLink="/calendar">Calendar DevExtrem</a>
+      <a routerLink="/Fullcalendar">Full Calendar</a>
 
       <p *ngIf="nameUser != null"> {{ nameUser }} </p>
     </div>

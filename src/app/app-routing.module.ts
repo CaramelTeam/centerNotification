@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './layout/menu/Menu/menu.component';
 import { Login2Component } from './layout/loginSecond/login2.component';
 import { NewAcountComponent } from './layout/new-acount/new-acount.component';
+import { FullCalendarComponent } from '@fullcalendar/angular';
 
 const routes: Routes = [
   {
@@ -32,6 +33,14 @@ const routes: Routes = [
       {
         path: 'notificationSend',
         loadChildren: () => import('./pages/send-notification/notification-routing.module').then(s => s.NotificationSendTableRoutingModule)
+      },
+      {
+        path: 'calendar',
+        loadChildren: () => import('./pages/calendar/calendar.module').then(s => s.CalendarModule)
+      },
+      {
+        path: 'Fullcalendar',
+        loadChildren: () => import('./pages/fullcalendar/fullcalendar.module').then(d => d.FullcalendarModule)
       }
     ]
   }
